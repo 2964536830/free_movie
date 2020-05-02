@@ -17,7 +17,7 @@ const PRSE_URL = [
   },
   {
     text: "40解析",
-    value: "https://jx40.net/?url="
+    value: "https://jx40.net/url="
   },
   {
     text: "618G解析(http)",

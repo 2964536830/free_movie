@@ -1,5 +1,13 @@
+@blue-color: #1976d2;
+* {
+  box-sizing: border-box;
+}
 html {
   overflow-y: auto;
+  font-size: 14.5px;
+}
+a {
+  text-decoration: none;
 }
 .color-white {
   color: #fff !important;
@@ -7,25 +15,27 @@ html {
 .pt-0 {
   padding-top: 0;
 }
+.app-container {
+  padding-bottom: 70px;
+}
 .wrapper {
   display: block;
   position: relative;
-  max-width: 1180px;
+  max-width: 1080px;
   margin: 0 auto;
   height: 100%;
 }
-
-.home {
-  &-bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+.app-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.video {
+  .app-bg {
     background-image: url(~assets/wenli.jpg);
     background-repeat: repeat;
-    // background-size: cover;
-    // opacity: 0.8;
   }
   .search-bar {
     background: #fff;
@@ -36,9 +46,190 @@ html {
     border-bottom: 1px solid rgba(0, 0, 0, 0.49);
   }
   .movie-content {
+    width: 100%;
+    height: 600px;
     iframe {
       width: 100%;
-      height: 600px;
+      height: 100%;
+    }
+  }
+  .logos-lists {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    & > div {
+      // width: 14%;
+      position: relative;
+      padding: 16px 14.35px;
+      margin: 10px;
+      // margin-right: 1%;
+      // margin-bottom: 10px;
+      background: #fff;
+      border: 1px solid #ededed;
+      transition: border linear 0.2s, box-shadow linear 0.2s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 115px;
+        height: 35px;
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+  @media screen and(max-width:576px) {
+    .search-bar {
+      padding: 20px;
+    }
+    .logos-lists {
+      display: none;
+    }
+    .movie-content {
+      height: 250px;
+    }
+    .content-block {
+      padding: 20px;
+    }
+  }
+}
+.music {
+  .app-bg {
+    background-image: url(~assets/wenli-2.png);
+    background-repeat: repeat;
+  }
+  .tab-bar {
+    display: flex;
+    margin: 20px 0;
+    & > div {
+      position: relative;
+      display: inline-block;
+      margin-right: 34px;
+      line-height: 1;
+      font-weight: 300;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.1s linear;
+      &.act {
+        color: #1976d2;
+      }
+    }
+  }
+  .page-songlist {
+    .songlist-h {
+      .row {
+        color: #999;
+        &:hover {
+          background-color: transparent;
+        }
+        & > div {
+          &:hover {
+            color: #999;
+          }
+        }
+      }
+    }
+    .row {
+      position: relative;
+      padding: 15px 0 15px 85px;
+      overflow: hidden;
+      color: #333;
+      display: flex;
+      font-weight: 300;
+      &:hover {
+        background-color: #f2f2f2;
+        .song-actions {
+          display: block;
+        }
+      }
+      & > div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1;
+        height: 20px;
+        line-height: 20px;
+        &:hover:not(.song-actions) {
+          color: @blue-color;
+          cursor: pointer;
+        }
+        &.song-actions:hover {
+          cursor: pointer;
+          i:hover {
+            color: @blue-color;
+          }
+        }
+        &.song-check {
+          overflow: visible;
+        }
+      }
+    }
+    .song-check {
+      width: 17px;
+      text-align: center;
+      cursor: pointer;
+      position: absolute;
+      top: 16px;
+      left: 25px;
+      font-size: 14px;
+    }
+    .song-index {
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      left: 75px;
+      font-size: 14px;
+    }
+    .song-name {
+      font-size: 14px;
+      width: 300px;
+    }
+    .song-singers {
+      width: 200px;
+      margin-right: 2%;
+    }
+    .song-belongs {
+      width: 20%;
+      margin-right: 3%;
+    }
+    .song-actions {
+      display: none;
+      .iconfont {
+        margin-left: 30px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .music-control {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 11000;
+    padding-top: 20px;
+    height: 90px;
+    width: 100%;
+    .control-body {
+      position: relative;
+      max-width: 1640px;
+      padding: 0 120px;
+      margin: 0 auto;
+      background: #fff;
+      height: 100%;
+    }
+    .song-img {
+      width: 70px;
+      height: 70px;
+      margin-right: 20px;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
